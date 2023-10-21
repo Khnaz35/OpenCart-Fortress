@@ -1,0 +1,14 @@
+ErrorDocument 403 https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+Order Deny,Allow
+Deny from all
+
+#Whitelist Office IP
+Allow from your-ip-address
+
+#Whitelist home IP
+Allow from your-ip-address
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^admin/?$ https://%{REMOTE_ADDR}/ [R=301,L]
